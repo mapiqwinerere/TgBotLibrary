@@ -93,6 +93,7 @@ class TgBot():
        @self.bot.message_handler(commands=[word])
        def command(message):
            user_function(message)
+        
     #function to create a second function when the first one finishes
     def next_step(self, func, message):
          self.bot.register_next_step_handler(message=message, callback=func)
