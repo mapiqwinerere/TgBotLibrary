@@ -57,10 +57,6 @@ class TgBot():
     #function to send messages
     def message(self, text, message):
         self.bot.send_message(message.chat.id, text)
-        
-    #function to send keyboards
-    def send_keyboard(self, keyboard, text, message):
-        self.bot.send_message(message.chat.id, text = text.format(message.from_user), reply_markup=keyboard)  
 
     #function to create keyboards    
     def keyboard(self, buts, values, name_keyboard, row_width, text_user, send, message):
