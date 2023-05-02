@@ -11,6 +11,37 @@ def write_token(bot, token):
        file.write(text_for_write)
        file.close()
 
+class Keyboard():
+   def __init__(self, name, row_width, buts, value, text, send, message, bot):
+      global buts_value
+      global keyboards
+
+      self.name = name
+      self.row_width = row_width
+      self.buts = buts
+      self.value = value
+      self.text = text
+      self.send = send
+      self.message = message
+      self.keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width= row_width)
+      keyboards = {}
+
+      for but in buts:
+          self.keyboards[name_keyboard]['but' + str(but)] = types.KeyboardButton(but)
+          self.buts.append(but)
+      
+      for i in range(len(buts)):
+          self.buts_value[buts[i]] = values[i]
+          self.values = values
+   
+      dictionary_values = list(self.keyboards[name_keyboard].values())
+      keyboard.add(*dictionary_values)
+
+      if self.send:
+          self.keyboard.send(bot)
+
+   def send(self, bot):
+      bot.bot.send_message(self.message.chat.id, text = self.text_user.format(message.from_user), reply_markup=self.keyboard)
 
 class TgBot():
     def __init__(self, name_bot): 
@@ -83,6 +114,10 @@ class TgBot():
            self.bot.send_message(message.chat.id, text = text_user.format(message.from_user), reply_markup=keyboard)
     
     #function to create hadler
+ 
+    def keyboard(self, name_keyboard, row_width, buts, value, text, send, message):
+        self.keyboards[name_keyboard] = Keyboard(name_keyboard, row_width, buts, value, text, send, message)
+       
     def hadler(self, word, user_function):
        global command
        
