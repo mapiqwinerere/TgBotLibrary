@@ -25,14 +25,14 @@ class Keyboard():
       self.message = message
       self.keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width= row_width)
       keyboards = {}
-
+      keyboards[name] = {}
+      
       for but in buts:
-          self.keyboards[name_keyboard]['but' + str(but)] = types.KeyboardButton(but)
+          keyboards[name]['but' + str(but)] = types.KeyboardButton(but)
           self.buts.append(but)
       
-      for i in range(len(buts)):
-          self.buts_value[buts[i]] = values[i]
-          self.values = values
+      for i in range(len(self.buts)):
+          self.buts_value[self.buts[i]] = self.value[i]
    
       dictionary_values = list(self.keyboards[name_keyboard].values())
       keyboard.add(*dictionary_values)
