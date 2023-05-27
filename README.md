@@ -28,6 +28,9 @@ Function of class TgBot, which create command upon receipt of which start set fu
 # hadler
 Function of class TgBot, which receivng, which executes the specified function. It acceptss arguments: word(by which start function) and function(which is activated  when a message is received).
 
+# keyboard_hadler
+A function of the TgBot class, when a certain word is received, the specified function with the keyboard is executed. This function differs from hadler in that there will be no errors when sending the keyboard. It accepts word(the word on which the command will occur), func(a function that will be activated when received), keyboard(the name of the keyboard passed when it was created).
+
 # next_step
 Function of class TgBot, which assigns function, which will be activated after the completion of the one in which it was written(use including for get answer from user and its further processing). It acceptss arguments: func(function) and message(value of message, it for sending message).
 
